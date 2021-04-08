@@ -41,3 +41,10 @@ At this stage, I finish the 50% of choropleth map with D3,
 I realized the d3 choropleth draw the map and block, then change the colour is not what I need.
 
 I want use D3 load csv data, display mark on real google map.
+
+PS: my business plan:
+this is why I use google map istead of draw our own shap of map,
+because the client can be the machine companly, the machine can be located on anywhere on the earth.
+the AI system can be a optional module for machine, the controller will be direact connect to the AI system, hence the machine can auto adjust the angle of pan.
+
+--------ends-----------
