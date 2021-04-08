@@ -37,3 +37,7 @@ This is web based AI system interface
 2. show map with full of color cubes 
 
 ----update by 2.1-----
+At this stage, I finish the 50% of choropleth map with D3,
+I realized the d3 choropleth draw the map and block, then change the colour is not what I need.
+
+I want use D3 load csv data, display mark on real google map.
