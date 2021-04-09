@@ -4,41 +4,54 @@ import time
 from datetime import datetime
 
 
-now = datetime.now()
-testTime = 0
-gps_latitude = 152.67881
+currentTime = datetime.now()
+indexNumber = 0
+lat = -27.552510
+lng = 153.053360
 number = 8
 
-fieldnames = ["data_number", "now", "gps_latitude", "number"]
+def rand (): # <= fake random number from 0 to 16.
+    number = []
+    for i in range(9):
+        number.append(random.randint(0,16))
+    number.sort()
+    return number[4]
 
-with open('./data.csv', 'w') as csv_file:
+
+
+fieldnames = ["indexNumber", "time", "latitude", "longitude", "resultNumber"]
+
+with open('./data/data.csv', 'w') as csv_file:
     csv_writer = csv.DictWriter(csv_file, fieldnames = fieldnames)
     csv_writer.writeheader()
 
-while testTime != 101:#<- set the time
-    with open('./data.csv', 'a') as csv_file:
+while indexNumber != 101:#<- set the time
+    with open('./data/data.csv', 'a') as csv_file:
         csv_writer = csv.DictWriter(csv_file, fieldnames = fieldnames)
 
         info = {
-            'data_number': testTime,
-            'now': now,
-            'gps_latitude': gps_latitude,
-            'number': number
+            'indexNumber': indexNumber,
+            'time': currentTime,
+            'latitude': lat,
+            'longitude': lng,
+            'resultNumber': number
         }
 
         csv_writer.writerow(info)
-        print(testTime, now, round(gps_latitude,6), number)
+        print(indexNumber, currentTime, round(lat,6), round(lng,6), number)
 
-        testTime += 1 #import realtime , how?
-        now = datetime.now()
-        gps_latitude -=  0.00002 # moving West 1 meter "{:.2f}".format(a_float)
-        number = []
-        for i in range(5):
-            number.append(random.randint(0,16))
-        number.sort()
-        number = number[2]
+        indexNumber += 1 #import realtime , how?
+        currentTime = datetime.now() # get the current time
+        lat -=  0.00002 # moving West 1 meter "{:.2f}".format(a_float)
+        lng = lng
+        number = rand()
+#        for i in range(5):
+#            number.append(random.randint(0,16))
+#        number.sort()
+#        number = number[2]
 
-    
     time.sleep(1)
+
+
 
 
