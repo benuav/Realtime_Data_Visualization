@@ -12,7 +12,7 @@
         }
         #map {
             height: 960px;
-            width: 80%;
+            width: 100%;
         }
     </style>
 
@@ -21,25 +21,34 @@
     <div id="map"></div>
 
     <script>
-        function initMap() {
-            var location = {lat: -27.552374, lng: 153.053474}
-            var map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 15,
+        function initMap() { // set the google map
+            var location = {lat: -27.552510, lng: 153.053360} // set the location var
+            var map = new google.maps.Map(document.getElementById("map"), { // set the map itself
+                zoom: 25,
                 center: location
             });
 
-            var marker = new google.maps.Marker({
+           /* var marker = new google.maps.Marker({ // give a marker on the map
                 position: location,
                 map: map
             })
+            */
 
+            var rectangle = new google.maps.Rectangle ({
+                map: map,
+                bounds: new google.maps.LatLngBounds (
+                    new google.maps.LatLng (location),
+                    new google.maps.LatLng (-27.552520,153.053370)
+                ),
+                fillColor: "red",
+                strokeColor: "white"   
+            }) ;
         }
-        git config --global user.email "you@example.com"
-  git config --global user.name "Your Name"
+        //window.onload = initMap;
 
 
         //Google Maps API guide: https://developers.google.com/maps/do...​
-//      Find your latitude and logitude: http://www.latlong.net/​
+        //Find your latitude and logitude: http://www.latlong.net/​
 
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJiAa3qQ4LuPAws9B7yErrDTYwwWWwW0E&&callback=initMap"type="text/javascript">
