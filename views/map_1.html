@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" >
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 640px;
+            width: 480px;
+        }
+    </style>
+        <title>Google Map</title>
 
-    <head>
-        <title>My Project</title>
-        <link rel="stylesheet" href="../css/style.css">
-    </head>
+</head>
 
     <ul>
         <li><a href="index.html">Home</a></li>
@@ -17,14 +30,57 @@
 
 
     <body>
-        <h1>Map</h1>
-        <img src="../images/test_1.jpg">
-
+        <div id="map"></div>
+        <button>submit</button>
+    
         <script>
-   
-
+            function initMap() { // set the google map
+                var location = {lat: -27.552510, lng: 153.053360} // set the location var
+                var map = new google.maps.Map(document.getElementById("map"), { // set the map itself
+                    zoom: 20,
+                    center: location
+                });
+    
+               /* var marker = new google.maps.Marker({ // give a marker on the map
+                    position: location,
+                    map: map
+                })
+                */
+    
+                var rectangle = new google.maps.Rectangle ({
+                    map: map,
+                    bounds: new google.maps.LatLngBounds (
+                        new google.maps.LatLng (location),
+                        new google.maps.LatLng (-27.552520,153.053370)
+                    ),
+                    fillColor: "red",
+                    strokeColor: "white"   
+                }) ;
+    
+                var rectangle_2 = new google.maps.Rectangle ({
+                    map: map,
+                    bounds: new google.maps.LatLngBounds (
+                        new google.maps.LatLng (-27.552510,153.053365),
+                        new google.maps.LatLng (-27.552520,153.053375)
+                    ),
+                    fillColor: "red",
+                    strokeColor: "white"   
+                }) ;
+    
+    
+    
+    
+            }
+    
+            //window.onload = initMap;
+    
+    
+            //Google Maps API guide: https://developers.google.com/maps/do...​
+            //Find your latitude and logitude: http://www.latlong.net/​
+    
         </script>
-
-
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJiAa3qQ4LuPAws9B7yErrDTYwwWWwW0E&&callback=initMap"type="text/javascript">
+        </script>
+    
     </body>
 </html>
