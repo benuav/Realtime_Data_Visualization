@@ -69,3 +69,7 @@ what type of data input?
 host web online
 enbad web in tablet
 business road map
+
+------new-------
+I should work:
+in map view, load csv file before show map view.
