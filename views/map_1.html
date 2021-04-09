@@ -30,23 +30,24 @@
 
 
     <body>
-        <div id="map"></div>
-        <button>submit</button>
-    
-        <script>
+
+
+        <script>// <- fitch data from data.csv
+
             function initMap() { // set the google map
+                getData()
                 var location = {lat: -27.552510, lng: 153.053360} // set the location var
                 var map = new google.maps.Map(document.getElementById("map"), { // set the map itself
                     zoom: 20,
                     center: location
                 });
-    
+                console.log(position)
                /* var marker = new google.maps.Marker({ // give a marker on the map
                     position: location,
                     map: map
                 })
                 */
-    
+                
                 var rectangle = new google.maps.Rectangle ({
                     map: map,
                     bounds: new google.maps.LatLngBounds (
@@ -56,7 +57,7 @@
                     fillColor: "red",
                     strokeColor: "white"   
                 }) ;
-    
+
                 var rectangle_2 = new google.maps.Rectangle ({
                     map: map,
                     bounds: new google.maps.LatLngBounds (
@@ -66,21 +67,44 @@
                     fillColor: "red",
                     strokeColor: "white"   
                 }) ;
-    
-    
-    
-    
             }
-    
-            //window.onload = initMap;
-    
-    
             //Google Maps API guide: https://developers.google.com/maps/do...​
             //Find your latitude and logitude: http://www.latlong.net/​
-    
+
+            async function getData(){
+                const response = await fetch('../data/data.csv');  // <- fitch data.csv and store in var
+                const data = await response.text();                //<- tern csv data into text data
+                //console.log(data);
+
+                const rows = data.split('\n').slice(1);            // <- get row without first line
+                var position = [];                               // <- position store list of coordinates
+
+                rows.forEach(elt => {                   // <- run for each function in each rows
+                    const row = elt.split(',');         //<- split the row data into array
+                    //console.log(row);                   // <- each row of data
+
+                    const lat = row[2]; //<- fitch lat from rows
+                    const lng = row[3];
+                    //console.log('lat is:',lat,"lng is:",lng)
+
+                    const coordinates = [lat, lng] //<- store lat and lng into a array
+
+                    position.push(coordinates) // <- store coor into a array
+                    
+                });
+
+                console.log('position is:', position)
+                console.log(position[0])
+            }; 
+
+            // note: in this function, always run map function first, so the data can not pass to map mark
+            
         </script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJiAa3qQ4LuPAws9B7yErrDTYwwWWwW0E&&callback=initMap"type="text/javascript">
-        </script>
-    
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJiAa3qQ4LuPAws9B7yErrDTYwwWWwW0E&&callback=initMap"type="text/javascript">// <- set google map API</script>
+        
+        <div id="map"></div>
+        <button>submit</button> 
+
     </body>
 </html>

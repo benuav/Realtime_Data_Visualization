@@ -51,7 +51,7 @@ the AI system can be a optional module for machine, the controller will be direa
 
 the rest can be done by use js. 
 1. fitch data from database
-2. generate real gps location
+2. generate real gps location (check)
 3. use if fuction {
     if the number is below 3: return red color
     if the number is between 4 - 12, return green.
