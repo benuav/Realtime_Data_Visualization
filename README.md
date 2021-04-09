@@ -48,3 +48,24 @@ because the client can be the machine companly, the machine can be located on an
 the AI system can be a optional module for machine, the controller will be direact connect to the AI system, hence the machine can auto adjust the angle of pan.
 
 --------ends-----------
+
+the rest can be done by use js. 
+1. fitch data from database
+2. generate real gps location
+3. use if fuction {
+    if the number is below 3: return red color
+    if the number is between 4 - 12, return green.
+    if the number is above 12: return purpol
+}
+4. read line of database ForEach():
+    draw box ( lat, lng)
+    fill color (function(number));
+    (optional: rise flg & show picture).
+5. show sidebar for map display
+6. more gauges
+
+Bigger question:
+what type of data input?
+host web online
+enbad web in tablet
+business road map
