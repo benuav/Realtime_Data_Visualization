@@ -27,22 +27,13 @@
 
         <script>// <- fitch data from data.csv
 
-
             function initMap() { // set the google map
                 var location = {lat: -27.552510, lng: 153.053360} // set the location var
                 var map = new google.maps.Map(document.getElementById("map"), { // set the map itself
                     zoom: 20,
                     center: location
                 });
-
-                const response = await fetch('../data/data.csv');  // <- fitch data.csv and store in var
-                const data = await response.text();                //<- tern csv data into text data
-                //console.log(data);
-
-                const rows = data.split('\n').slice(1);            //<- tern csv data into text data
-
-
-
+    
                 var marker = new google.maps.Marker({ // <- give a marker on the map
                     position: location,
                     map: map
@@ -71,6 +62,9 @@
                    
                 }) ;
                  */
+                 getData();
+                 console.log(global.pos);
+
             }
 
             //Google Maps API guide: https://developers.google.com/maps/do...​
@@ -96,11 +90,10 @@
                     //console.log('lat is:',lat,"lng is:",lng)
 
                     const coordinates = [lat, lng] //<- store lat and lng into a array
-
-                    pos.push(coordinates[0]) // <- store coor into a array
+                    //console.log('corridinates is : ' + coordinates)
+                    pos.push(coordinates) // <- store coor into a array
                     
                 });
-                return pos
 
                 console.log('pos is:', pos)
                 //console.log('the first element in position is: '+ position[0])
