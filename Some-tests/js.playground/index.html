@@ -12,6 +12,44 @@
     <script>
         //bower from top to buttom
 
+        var pos = ["1,2","2,2","3,2","1,3"]
+        newPos = []
+        pos.forEach (elt => {
+            const newPos = elt.split(',')
+            //console.log(newPos)
+            console.log("newPos: ", newPos)
+            console.log(twoPost(newPos))
+
+        });
+
+
+        function twoPost (onePost) {
+            var lag = onePost[0]
+            var lng = onePost[1]
+            var newLag = lag - 0.5
+            var newLng = lng - (-0.5)
+            //console.log('lag:', lag, ',lng:',lng)
+            //console.log('new lag:', newLag, ',new lng:',newLng)
+            return firstPost = [lag,lng, newLag, newLng]
+  
+
+        };
+      
+
+/*
+rows.forEach(elt => {                   // <- run for each function in each rows
+                    const row = elt.split(',');         //<- split the row data into array
+                    console.log(row);                   // <- each row of data
+
+                    const lat = row[2]; //<- fitch lat from rows
+                    const lng = row[3];
+                    //console.log('lat is:',lat,"lng is:",lng)
+
+                    const coordinates = [lat, lng] //<- store lat and lng into a array
+                    //console.log('corridinates is : ' + coordinates)
+                    pos.push(coordinates) // <- store coor into a array
+                    
+                });
 
         myArray = [[1,2,3], [2,2,2]]
         myData = ['habbp','jaop','shift']
@@ -63,7 +101,7 @@
 
             console.log(myArray)
 
-
+*/
     </script>
     
 </body>

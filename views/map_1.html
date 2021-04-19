@@ -63,7 +63,7 @@
                 }) ;
                  */
                  getData();
-                 console.log(global.pos);
+                // console.log(global.pos);
 
             }
 
@@ -79,11 +79,12 @@
                 //console.log(data);
 
                 const rows = data.split('\n').slice(1);            // <- get row without first line
-              //  var position = [];                               // <- position store list of coordinates
+                console.log(rows);
+                //var position = [];                               // <- position store list of coordinates
 
                 rows.forEach(elt => {                   // <- run for each function in each rows
                     const row = elt.split(',');         //<- split the row data into array
-                    //console.log(row);                   // <- each row of data
+                    console.log(row);                   // <- each row of data
 
                     const lat = row[2]; //<- fitch lat from rows
                     const lng = row[3];

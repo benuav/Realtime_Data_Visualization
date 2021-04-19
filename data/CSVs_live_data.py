@@ -42,8 +42,8 @@ while indexNumber != 101:#<- set the time
 
         indexNumber += 1 #import realtime , how?
         currentTime = datetime.now() # get the current time
-        lat -=  0.00002 # moving West 1 meter "{:.2f}".format(a_float)
-        lng = lng
+        lat =  lat # moving south 1 meter "{:.2f}".format(a_float)
+        lng -= 0.00002 # moving west 2 meter by - 0.00002
         number = rand()
 #        for i in range(5):
 #            number.append(random.randint(0,16))
