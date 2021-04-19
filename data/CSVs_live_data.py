@@ -21,12 +21,12 @@ def rand (): # <= fake random number from 0 to 16.
 
 fieldnames = ["indexNumber", "time", "latitude", "longitude", "resultNumber"]
 
-with open('./data/data.csv', 'w') as csv_file:
+with open('./data.csv', 'w') as csv_file:
     csv_writer = csv.DictWriter(csv_file, fieldnames = fieldnames)
     csv_writer.writeheader()
 
 while indexNumber != 101:#<- set the time
-    with open('./data/data.csv', 'a') as csv_file:
+    with open('./data.csv', 'a') as csv_file:
         csv_writer = csv.DictWriter(csv_file, fieldnames = fieldnames)
 
         info = {
@@ -51,7 +51,9 @@ while indexNumber != 101:#<- set the time
 #        number = number[2]
 
     time.sleep(1)
-
-
+    
+#in order to run this properly, python file need to run in pycharm, web need host on python server in VScode
+# when use python server, change csv number will not refresh the page
+#python command to run:  python CSVs_live_data.py 
 
 
