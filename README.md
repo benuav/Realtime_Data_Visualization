@@ -73,3 +73,9 @@ business road map
 ------new-------
 I should work:
 in map view, load csv file before show map view.
+
+
+---------Apr 19 update---------
+now, I can input manual csv data to show rectengal on map,
+I can display different color based on number
+add a user input for color and rectangle size.

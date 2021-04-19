@@ -39,34 +39,6 @@
                     map: map
                 })
 
-
-                
-                /*
-                var rectangle = new google.maps.Rectangle ({
-                    map: map,
-                    bounds: new google.maps.LatLngBounds (
-                        new google.maps.LatLng (location),
-                        new google.maps.LatLng (-27.552520,153.053370)
-                    ),
-                    fillColor: "red",
-                    strokeColor: "white"   
-                }) ;
-
-                var rectangle_2 = new google.maps.Rectangle ({
-                    map: map,
-                    bounds: new google.maps.LatLngBounds (
-                        new google.maps.LatLng (-27.552510,153.053365),
-                        new google.maps.LatLng (-27.552520,153.053375)
-                    ),
-                    fillColor: "red",
-                    strokeColor: "white"   
-                   
-                }) ;
-                */
-            
-                
-            
-
 //<---manual data input from here:-----------------------------------------------
 
             var csvData = [
@@ -94,12 +66,7 @@
                 "21,2021-04-19 14:03:53.068657,-27.55251,153.05293999999986,6", 
                 "22,2021-04-19 14:03:54.070392,-27.55251,153.05291999999986,9",
             ]
-                /* short example:
-                [
-                "0,2021-04-09 23:38:15.145340,-27.55251,153.05336,8", 
-                "1,2021-04-09 23:38:15.145749,-27.55253,153.05336,10", 
-                "2,2021-04-09 23:38:16.147035,-27.55255,153.05336,6"]
-                */
+
 
 //<------ clean the data with geo location only------------------------------
             var pos = [];
@@ -108,15 +75,18 @@
                 //console.log(row);
                 const lat = row[2]; //<- fitch lat from rows
                 const lng = row[3];
-                    //console.log('lat is:',lat,"lng is:",lng)
+
+            /*console.log('lat is:',lat,"lng is:",lng)
                 console.log('first element',twoPost(lat,lng)[0])
                 console.log('second element',twoPost(lat,lng)[1])
                 console.log('third element',twoPost(lat,lng)[2])
                 console.log('fourth element',twoPost(lat,lng)[3])
+            */
                 var firstElement = twoPost(lat,lng)[0];
                 var secondElement = twoPost(lat,lng)[1];
                 var thirdElement = twoPost(lat,lng)[2];
                 var fourthElement = twoPost(lat,lng)[3];
+            
 
 
 
@@ -130,7 +100,9 @@
                         new google.maps.LatLng (thirdElement, fourthElement)
                     ),
                     fillColor: "red",
-                    strokeColor: "white"   
+                    //strokeColor: "red" ,
+                    strokeOpacity: 0, //<- 
+                    //strokeWeight: 1, //<- size 
                 }) ;
 
             });
@@ -140,7 +112,7 @@
 
 //<- function that convert one point GEO location into two point
             function twoPost (latt,lngg) {
-                var sizeOfRectangle = 0.000025
+                var sizeOfRectangle = 0.000019
                 var lat = latt
                 var lng = lngg
                 var newlat = lat - sizeOfRectangle
@@ -149,7 +121,8 @@
                 //console.log('new lag:', newLag, ',new lng:',newLng)
                 return firstPost = [lat,lng, newlat, newLng]
             };
-
+//<- function of choos display color based on number of sugarcane
+      
 
 
 
