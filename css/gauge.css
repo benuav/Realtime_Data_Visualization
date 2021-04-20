@@ -1,6 +1,6 @@
 .gauge {
     width: 100%;
-    max-width: 250px;
+    max-width: 100%;
     font-family: "Roboto", sans-serif;
     font-size: 40px;
     color: #004033;
@@ -34,8 +34,8 @@
     position: absolute;
  
 
-    width: 250px;
-    height: 125px;
+    width: 100%;
+    height: 100%;
 
     top: 100%;
 
