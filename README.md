@@ -79,3 +79,6 @@ in map view, load csv file before show map view.
 now, I can input manual csv data to show rectengal on map,
 I can display different color based on number
 add a user input for color and rectangle size.
+
+
+/// testr
