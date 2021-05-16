@@ -373,7 +373,7 @@
   border-radius: 10px; }
 
 .button-rounded {
-  border-radius: 4px; }
+  border-radius: 10px; }
 
 .button-pill {
   border-radius: 200px; }
@@ -687,8 +687,8 @@
   .button-borderless.button-royal {
     color: #7B72E9; }
   .button-borderless.button-giant {
-    font-size: 36.4px;
-    height: 52.4px;
+    font-size: 10%;
+    height: 10%;
     line-height: 52.4px; }
   .button-borderless.button-jumbo {
     font-size: 31.2px;
@@ -1459,7 +1459,8 @@
   font-size: 28px;
   height: 70px;
   line-height: 70px;
-  padding: 0 70px; }
+  width: 315px;
+  padding: 0; }
 
 .button-jumbo {
   font-size: 24px;

@@ -11,9 +11,14 @@ body {
 h1 {
     text-align: center;
     margin: auto;
-    padding: auto;
+    padding-top: 50px;
+    padding-bottom: 100px;
     margin-top: 10%;
     color:rgb(46, 209, 100);
     font-size: 300%;
   }
 
+ h2{
+    padding: 2%;
+
+  }
