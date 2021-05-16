@@ -8,39 +8,6 @@ body {
 
 }
 
-
-header {
-
-    background-color: rgb(198, 201, 200);
-    display: flex;
-    margin: auto;
-}
-
-
-section {
-    background-color: rgb(141, 192, 175);
-    color: gray;
-    display: flex;
-    margin: auto;
-    text-align: center;
-    padding: auto;
-}
-
-li{
-    display:inline-block;
-    text-decoration: none;
-
-    
-
-
-}
-
-ul{
-    margin:0;
-    padding: 0;
-    list-style-type: none;
-}
-
 h1 {
     text-align: center;
     margin: auto;
