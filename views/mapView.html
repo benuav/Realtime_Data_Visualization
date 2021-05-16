@@ -17,9 +17,10 @@
     <link rel="stylesheet" href="../css/grids.css">
 
     <link rel="stylesheet" href="../css/map.css" type="text/css" media="screen" >
+    <link rel="stylesheet" href="../css/style.css">
 
 
-    <title>Sugarcane AI System Interface</title>
+    <title>Sugarcane AI System</title>
 
 </head>
 
@@ -34,6 +35,40 @@
     <a type="button" class="button button-primary" href="mapView.html" >Map</a>
     <a type="button" class="button button-primary" href="setView.html" >Setting</a>
   </div>
+
+  <!-- select Database -->
+  <section  id="buttons-dropdown" class="showcase  showcase-content background-light">
+
+  <span class="button-dropdown" data-buttons="dropdown">
+    <button class="button button-rounded">
+      Select Database <i class="fa fa-caret-down"></i>
+    </button>
+
+    <ul class="button-dropdown-list">
+      <li><a href="http://unicorn-ui.com/">Option Link 1</a></li>
+      <li><a href="http://unicorn-ui.com/">Option Link 2</a></li>
+      <li class="button-dropdown-divider">
+        <a href="#">Option Link 3</a>
+      </li>
+    </ul>
+  </span>
+  </section>
+
+ <!-- google map -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJiAa3qQ4LuPAws9B7yErrDTYwwWWwW0E&&callback=initMap"type="text/javascript">// <- set google map API</script>
+        
+    <div id="map"></div>
+    <div id=''></div>
+
+
+
+
+</body>
+
+
+
+
+
 
         <script>// <- fitch data from data.csv
 
@@ -257,11 +292,4 @@
         }
         </script>
 
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJiAa3qQ4LuPAws9B7yErrDTYwwWWwW0E&&callback=initMap"type="text/javascript">// <- set google map API</script>
-        
-        <div id="map"></div>
-        <div id=''></div>
-
-
-    </body>
 </html>

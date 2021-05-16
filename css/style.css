@@ -22,3 +22,13 @@ h1 {
     padding: 2%;
 
   }
+
+  h3{
+    text-align: center;
+    margin: auto;
+    padding-bottom: 10px;
+    margin-top: 3%;
+    color:rgb(46, 209, 100);
+    font-size: 300%;
+
+  }
