@@ -35,5 +35,26 @@
   </div>
 
 
+
+<div class="button-group">
+  <select id="button-dropdown-list" onchange="get()">
+    <option value="aaa">aaa</option>
+    <option value="bb">bb</option>
+    <option value="cc">cc</option>
+    <option value="dd">dd</option>
+</select>
+
+
+</div>
+
+
+<script>
+    function get(){
+        var value = document.getElementById("list").value;
+        console.log(value)
+    }
+    get();
+</script>
+
 </body>
 </html>
