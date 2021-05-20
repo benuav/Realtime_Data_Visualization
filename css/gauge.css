@@ -6,18 +6,20 @@
     color: #004033;
   }
   
-  .gauge__body {
-    width: 100%;
+  .gauge__body {  /* white part*/
+    width: 480px;
+    margin:auto;
     height: 0;
-    padding-bottom: 50%;
-    background: #b4c0be;
+    padding-bottom: 240px;
+    background: #e6e6e6;
     position: relative;
     border-top-left-radius: 100% 200%;
     border-top-right-radius: 100% 200%;
     overflow: hidden;  
   }
 
- /* .gauge__fill {
+ /* 
+ .gauge__fill {
     position: absolute;
     top: 100%;
     left: 0;
@@ -32,11 +34,8 @@
   /* 30% pointer*/
   .gauge__fill {
     position: absolute;
- 
-
     width: 100%;
     height: 100%;
-
     top: 100%;
 
     border-bottom-left-radius: 100% 200%;
@@ -52,7 +51,7 @@
   .gauge__cover {
     width: 75%;
     height: 150%;
-    background: #ffffff;
+    background: rgb(236, 255, 249);
     border-radius: 50%;
     position: absolute;
     top: 25%;
