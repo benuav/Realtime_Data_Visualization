@@ -37,43 +37,15 @@
     <h4>
         <input type="file" id="csvFileInput" style="padding-bottom: 15px">
     </h4>
-    <output id="out">  </output>
-    <table align="center" id="csvRoot"></table>
+    <button class="button button-action button-jumbo button-rounded" onclick= window.location.reload()>Clear</button>
+
+
+
 
     <script src="../lib/papaparse.min.js"></script>
     <script src="../js/TableCsv.js"></script>
 
 
-    <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">Choose Date</button>
-        <div id="myDropdown" class="dropdown-content">
-          <a href="#home">Map_1</a>
-          <a href="#about">Map_2</a>
-          <a href="#contact">Map_3</a>
-        </div>
-      </div>
-
-      <script>
-        /* When the user clicks on the button, 
-        toggle between hiding and showing the dropdown content */
-        function myFunction() {
-          document.getElementById("myDropdown").classList.toggle("show");
-        }
-        
-        // Close the dropdown if the user clicks outside of it
-        window.onclick = function(event) {
-          if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-              var openDropdown = dropdowns[i];
-              if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-              }
-            }
-          }
-        }
-        </script>
  <!-------------------------------------- google map -------------->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJiAa3qQ4LuPAws9B7yErrDTYwwWWwW0E&&callback=initMap"type="text/javascript">// <- set google map API</script>
         
@@ -231,26 +203,71 @@
                 "22,2021-04-19 14:03:54.070392,-27.55259,153.05291999999986,9",
 
             ]
+          
 
-            var allData = getData();
-            //console.log('the data type is:',typeof data);
-            //console.log('the data value is:', data);
-            console.log(allData)
+            const csvFileInput = document.querySelector("#csvFileInput");
+            console.log("csvFileInput",csvFileInput)
+            
+            csvFileInput.addEventListener("change", (e) => {
+              Papa.parse(csvFileInput.files[0], {
+                delimiter: ",",
+                skipEmptyLines: true,
+                complete: (results) => {
+                  mapResult = results.data.slice(1);
+                  passData(mapResult);
+                }
+              });
+            });
 
+            function passData (mapResult){ 
+              //console.log('map result is: ', mapResult)
+              mapResult.forEach(elt => {                   // <- run for each function in each rows
+                const lat = elt[2]; //<- fitch lat from rows
+                const lng = elt[3];
+                const caneNumber = elt[4];
 
+                var firstElement = twoPost(lat,lng)[0];
+                var secondElement = twoPost(lat,lng)[1];
+                var thirdElement = twoPost(lat,lng)[2];
+                var fourthElement = twoPost(lat,lng)[3];
+                var geoColor = getGeoColor(caneNumber);
+
+                console.log(typeof firstElement)
+
+                var rectangle = new google.maps.Rectangle ({
+                    map: map,
+                    bounds: new google.maps.LatLngBounds (
+                        new google.maps.LatLng (firstElement, secondElement),
+                        new google.maps.LatLng (thirdElement, fourthElement),
+                        
+                    ),
+                    fillColor: geoColor,
+                    //strokeColor: "red" ,
+                    strokeOpacity: 0, //<- 
+                    //strokeWeight: 1, //<- size 
+                }) ;
+                
+           
+
+              })
+            };
 
 //<------ clean the data with geo location only------------------------------
+/*
            // var pos = [];
            csvData.forEach(elt => {                   // <- run for each function in each rows
                 const row = elt.split(',');         //<- split the row data into array
                 //console.log('row for csvData is: ',row);
                 const lat = row[2]; //<- fitch lat from rows
                 const lng = row[3];
+                
 
                 var firstElement = twoPost(lat,lng)[0];
                 var secondElement = twoPost(lat,lng)[1];
                 var thirdElement = twoPost(lat,lng)[2];
                 var fourthElement = twoPost(lat,lng)[3];
+          
+                
 
 
                 //<- set the color:-----------------------
@@ -267,7 +284,8 @@
                     map: map,
                     bounds: new google.maps.LatLngBounds (
                         new google.maps.LatLng (firstElement, secondElement),
-                        new google.maps.LatLng (thirdElement, fourthElement)
+                        new google.maps.LatLng (thirdElement, fourthElement),
+                        
                     ),
                     fillColor: geoColor,
                     //strokeColor: "red" ,
@@ -276,7 +294,7 @@
                 }) ;
 
         });
-
+*/
 
 
 

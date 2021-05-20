@@ -30,6 +30,40 @@
               get();
           </script>
 
+
+<!--drop down-->
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Choose Date</button>
+    <div id="myDropdown" class="dropdown-content">
+      <a href="#home">Map_1</a>
+      <a href="#about">Map_2</a>
+      <a href="#contact">Map_3</a>
+    </div>
+  </div>
+
+
+  <script>
+    /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+    
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+    </script>
     </body>
 
 </html>
