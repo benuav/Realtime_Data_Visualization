@@ -33,31 +33,48 @@
     <a type="button" class="button button-primary" href="setView.html" >Setting</a>
   </div>
 
-  <!-- select Database -->
-  <section  id="buttons-dropdown" class="showcase  showcase-content background-light">
+  <!---------------------------- select Database ------------------->
+    <h4>
+        <input type="file" id="csvFileInput" style="padding-bottom: 15px">
+    </h4>
+    <output id="out">  </output>
+    <table align="center" id="csvRoot"></table>
 
-  <span class="button-dropdown" data-buttons="dropdown">
-    <button class="button button-rounded">
-      Select Database <i class="fa fa-caret-down"></i>
-    </button>
-
-    <ul class="button-dropdown-list">
-      <li><a href="http://unicorn-ui.com/">Option Link 1</a></li>
-      <li><a href="http://unicorn-ui.com/">Option Link 2</a></li>
-      <li class="button-dropdown-divider">
-        <a href="#">Option Link 3</a>
-      </li>
-    </ul>
-  </span>
-  </section>
-
-  <p>Select local CSV File:</p>
-  <input id="csv" type="file">
-  
-  <output id="out">  </output>
+    <script src="../lib/papaparse.min.js"></script>
+    <script src="../js/TableCsv.js"></script>
 
 
- <!-- google map -->
+    <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Choose Date</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="#home">Map_1</a>
+          <a href="#about">Map_2</a>
+          <a href="#contact">Map_3</a>
+        </div>
+      </div>
+
+      <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+        </script>
+ <!-------------------------------------- google map -------------->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJiAa3qQ4LuPAws9B7yErrDTYwwWWwW0E&&callback=initMap"type="text/javascript">// <- set google map API</script>
         
     <div id="map"></div>
@@ -224,7 +241,7 @@
 
 //<------ clean the data with geo location only------------------------------
            // var pos = [];
-            allData.forEach(elt => {                   // <- run for each function in each rows
+           csvData.forEach(elt => {                   // <- run for each function in each rows
                 const row = elt.split(',');         //<- split the row data into array
                 //console.log('row for csvData is: ',row);
                 const lat = row[2]; //<- fitch lat from rows
@@ -308,9 +325,6 @@
              return a
                 
             }; 
-            
-            
-
         }
         </script>
 
