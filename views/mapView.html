@@ -51,8 +51,11 @@
   </span>
   </section>
 
-
+  <p>Select local CSV File:</p>
+  <input id="csv" type="file">
   
+  <output id="out">  </output>
+
 
  <!-- google map -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJiAa3qQ4LuPAws9B7yErrDTYwwWWwW0E&&callback=initMap"type="text/javascript">// <- set google map API</script>
@@ -70,21 +73,21 @@
 
 
 
-        <script>// <- fitch data from data.csv
+    <script>// <- fitch data from data.csv
 
-            function initMap() { // set the google map
-                var location = {lat: -27.552510, lng: 153.053180} // set the location var
-                var map = new google.maps.Map(document.getElementById("map"), { // set the map itself
-                    zoom: 20,
-                    center: location
-                });
-    
-                /*
-                var marker = new google.maps.Marker({ // <- give a marker on the map
-                    position: location,
-                    map: map
-                })
-                */
+        function initMap() { // set the google map
+            var location = {lat: -27.552510, lng: 153.053180} // set the location var
+            var map = new google.maps.Map(document.getElementById("map"), { // set the map itself
+                zoom: 20,
+                center: location
+            });
+
+            /*
+            var marker = new google.maps.Marker({ // <- give a marker on the map
+                position: location,
+                map: map
+            })
+            */
 
 //<---manual data input from here:-----------------------------------------------
 
@@ -212,35 +215,34 @@
 
             ]
 
+            var allData = getData();
+            //console.log('the data type is:',typeof data);
+            //console.log('the data value is:', data);
+            console.log(allData)
+
+
 
 //<------ clean the data with geo location only------------------------------
-            var pos = [];
-            csvData.forEach(elt => {                   // <- run for each function in each rows
+           // var pos = [];
+            allData.forEach(elt => {                   // <- run for each function in each rows
                 const row = elt.split(',');         //<- split the row data into array
-                //console.log(row);
+                //console.log('row for csvData is: ',row);
                 const lat = row[2]; //<- fitch lat from rows
                 const lng = row[3];
 
-            /*console.log('lat is:',lat,"lng is:",lng)
-                console.log('first element',twoPost(lat,lng)[0])
-                console.log('second element',twoPost(lat,lng)[1])
-                console.log('third element',twoPost(lat,lng)[2])
-                console.log('fourth element',twoPost(lat,lng)[3])
-            */
                 var firstElement = twoPost(lat,lng)[0];
                 var secondElement = twoPost(lat,lng)[1];
                 var thirdElement = twoPost(lat,lng)[2];
                 var fourthElement = twoPost(lat,lng)[3];
 
 
+                //<- set the color:-----------------------
+
                 const caneNumber = row[4];
                 //console.log(caneNumber);
                 var geoColor = getGeoColor(caneNumber);
-                console.log(geoColor);
+               // console.log(geoColor);
             
-
-
-
                 //<- rectangle loop from here:-----------------------
 
 
@@ -256,7 +258,7 @@
                     //strokeWeight: 1, //<- size 
                 }) ;
 
-            });
+        });
 
 
 
@@ -276,7 +278,7 @@
       
             function getGeoColor (numberOfCane) {
                 var n = numberOfCane
-                console.log(n);
+                //console.log(n);
 
                 if (n < 6) {
                     return "red";
@@ -289,6 +291,26 @@
 
             //Google Maps API guide: https://developers.google.com/maps/do...​
             //Find your latitude and logitude: http://www.latlong.net/​
+
+         
+            var a = [];
+            async function getData(){
+                const response = await fetch('../data/data.csv');
+                const data = await response.text();
+                //console.log('data is:', data)
+
+                const rows = data.split('\n').slice(1);
+                rows.forEach(elt => {
+                    a.push(elt)  
+
+
+                });
+             return a
+                
+            }; 
+            
+            
+
         }
         </script>
 

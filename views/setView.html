@@ -17,11 +17,37 @@
   <link rel="stylesheet" href="../css/grids.css">
 
   <link rel="stylesheet" href="../css/style.css">
+ <!-- UNICORN CSS STYLES -->
+ <link rel="shortcut icon" href="/assests/favicon.ico">
+  <style>
+      table {
+          border-collapse: collapse;
+          border-radius: 5px;
+          box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+          overflow: hidden;
+          font-family: "Quicksand", sans-serif;
+          font-weight: bold;
+          font-size: 14px;
+      }
 
+      th {
+          background: rgba(27, 154, 247, 0.95);
+          color: #ffffff;
+          text-align: left;
+      }
 
+      th,
+      td {
+          padding: 10px 20px;
+      }
 
+      tr:nth-child(even) {
+          background: #eeeeee;
+      }
+  </style>
     <title>Sugarcane AI System</title>
 </head>
+
 
 
 <body>
@@ -36,25 +62,24 @@
 
 
 
-<div class="button-group">
-  <select id="button-dropdown-list" onchange="get()">
-    <option value="aaa">aaa</option>
-    <option value="bb">bb</option>
-    <option value="cc">cc</option>
-    <option value="dd">dd</option>
-</select>
+
+  <h4>
+    <input type="file" id="csvFileInput" style="padding-bottom: 15px">
+  </h4>
+
+    <table align="center" id="csvRoot"></table>
+  
+  
+
+  <script src="../lib/papaparse.min.js"></script>
+  <script src="../js/TableCsv.js"></script>
+
+  <link rel="stylesheet" href="../css/style.css">
 
 
-</div>
 
-
-<script>
-    function get(){
-        var value = document.getElementById("list").value;
-        console.log(value)
-    }
-    get();
-</script>
 
 </body>
 </html>
+
+<!--load csv file function below:-->

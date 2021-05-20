@@ -81,4 +81,8 @@ I can display different color based on number
 add a user input for color and rectangle size.
 
 
-/// testr
+///show list of drop down list at the map view, / or input
+select different database to show on map view.
+
+1. load csv frle for map view
+2. able to select different csv File
