@@ -25,7 +25,7 @@ with open('./data.csv', 'w') as csv_file:
     csv_writer = csv.DictWriter(csv_file, fieldnames = fieldnames)
     csv_writer.writeheader()
 
-while indexNumber != 101:#<- set the time
+while indexNumber != 1001:#<- set the time
     with open('./data.csv', 'a') as csv_file:
         csv_writer = csv.DictWriter(csv_file, fieldnames = fieldnames)
 
