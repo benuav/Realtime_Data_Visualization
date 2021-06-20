@@ -154,26 +154,6 @@
                     return "green";
                 }
             };
-
-            //Google Maps API guide: https://developers.google.com/maps/do...​
-            //Find your latitude and logitude: http://www.latlong.net/​
-
-         
-            var a = [];
-            async function getData(){
-                const response = await fetch('../data/data.csv');
-                const data = await response.text();
-                //console.log('data is:', data)
-
-                const rows = data.split('\n').slice(1);
-                rows.forEach(elt => {
-                    a.push(elt)  
-
-
-                });
-             return a
-                
-            }; 
         }
         </script>
 
@@ -230,6 +210,26 @@
         });
 */
 
+
+            //Google Maps API guide: https://developers.google.com/maps/do...​
+            //Find your latitude and logitude: http://www.latlong.net/​
+
+         
+            // var a = [];
+            // async function getData(){
+            //     const response = await fetch('../data/data.csv');
+            //     const data = await response.text();
+            //     //console.log('data is:', data)
+
+            //     const rows = data.split('\n').slice(1);
+            //     rows.forEach(elt => {
+            //         a.push(elt)  
+
+
+            //     });
+            //  return a
+                
+            // }; 
 
 //<---manual data input from here:-----------------------------------------------
 

@@ -9,8 +9,8 @@ indexNumber = 0
 
 moveDown = 0.00002
 
-lat = -19.572295 - moveDown * 37
-lng = 147.127990 - moveDown * 3
+lat = -19.572295
+lng = 147.127990 
 number = 8
 
 
