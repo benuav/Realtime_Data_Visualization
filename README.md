@@ -1,88 +1,37 @@
-# Sugarcane-AI-Interface
-This is web based AI system interface 
+# Sugarcane-AI-Interface.readme
+
+Key folder:
+
+1. views: store each vew in this file
+2. data: contain example data, data genreator and dirctory for defult data stora location.
+3. src: file to keep all the sound file for gauge 2 and gauge 3
 
 
-Json for map view
-csv for live data
 
-convert csv to json when display map view
+<---------------------- START HERE: 
 
-Json:{
-
-    id: 1
-    time: "asd"
-        pos {
-            lan: 12
-            lon:32
-        }
-        image: 1212.jpag
-    numberOfCane: 2
-}
+1. step 1: open terminal
+2. step 2: run python server with command:            ||           python3 -m http.server                                               <- copy this
+3. step 3: open web from python server,  address :  ||          http://[::]:8000/views/                                                  <- copy this
+4. step 4: open new terminal: direct to data file:       ||          cd.  / Desctop/ Sugarcane-AI-Interface-main/ data    <- not copy this
+5. step 5: run :                                                            ||          python CSVs_live_data.py                                           <- after at data folder
 
 
-real GPS location generator
+<---------------------- preview map data:
 
---# Sugarcane-AI-Interface
-This is web based AI system interface 
+1. load example data from data foldor : area_1.csv and area_2.csv
 
-0. change py to real gps data generator.
+<---------------------- gauge view:
+1. gauge 1 has stop and go button to puse the gauge
+2. gauge 2 has audio as defult ( not work in Safari!  due to security issiue)
+3. gauge 3 has audio as defult ( not work in Safari!  due to security issiue)
 
-1. set up the basic mapviews (Choropleth Map)
-2. fitch data from csv to map (convert database if needed)
-3. 
-
-2 ways of showing the map:
-
-1. show clean map, display pin when odd number shows
-2. show map with full of color cubes 
-
-----update by 2.1-----
-At this stage, I finish the 50% of choropleth map with D3,
-I realized the d3 choropleth draw the map and block, then change the colour is not what I need.
-
-I want use D3 load csv data, display mark on real google map.
-
-PS: my business plan:
-this is why I use google map istead of draw our own shap of map,
-because the client can be the machine companly, the machine can be located on anywhere on the earth.
-the AI system can be a optional module for machine, the controller will be direact connect to the AI system, hence the machine can auto adjust the angle of pan.
-
---------ends-----------
-
-the rest can be done by use js. 
-1. fitch data from database
-2. generate real gps location (check)
-3. use if fuction {
-    if the number is below 3: return red color
-    if the number is between 4 - 12, return green.
-    if the number is above 12: return purpol
-}
-4. read line of database ForEach():
-    draw box ( lat, lng)
-    fill color (function(number));
-    (optional: rise flg & show picture).
-5. show sidebar for map display
-6. more gauges
-
-Bigger question:
-what type of data input?
-host web online
-enbad web in tablet
-business road map
-
-------new-------
-I should work:
-in map view, load csv file before show map view.
+<---------------------- Preview view:
+1. load example data to show the database
 
 
----------Apr 19 update---------
-now, I can input manual csv data to show rectengal on map,
-I can display different color based on number
-add a user input for color and rectangle size.
 
-
-///show list of drop down list at the map view, / or input
-select different database to show on map view.
-
-1. load csv frle for map view
-2. able to select different csv File
+for more information: 
+Contact Name : Ben Li, Johson Talor, Singiths Lekamlage, Aiqi Liu
+Email: zhuoheng.li@griffithuni.edu.au
+github link for this project is:  https://github.com/pleycothh/Sugarcane-AI-Interface-main.git

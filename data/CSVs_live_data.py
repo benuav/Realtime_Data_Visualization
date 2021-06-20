@@ -52,7 +52,7 @@ while indexNumber != 1001:#<- set the time
 
     time.sleep(1)
     
-#in order to run this properly, python file need to run in pycharm, web need host on python server in VScode
+#in order to run this properly, python file need to run in terminal, web need host on python server
 # when use python server, change csv number will not refresh the page // python3 -m http.server
 #python command to run:  python CSVs_live_data.py //python3 -m http.server
 
