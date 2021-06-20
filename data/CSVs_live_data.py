@@ -6,9 +6,13 @@ from datetime import datetime
 
 currentTime = datetime.now()
 indexNumber = 0
-lat = -27.552510
-lng = 153.053360
+
+moveDown = 0.00002
+
+lat = -19.572295 - moveDown * 37
+lng = 147.127990 - moveDown * 3
 number = 8
+
 
 def rand (): # <= fake random number from 0 to 16.
     number = []
@@ -25,7 +29,7 @@ with open('./data.csv', 'w') as csv_file:
     csv_writer = csv.DictWriter(csv_file, fieldnames = fieldnames)
     csv_writer.writeheader()
 
-while indexNumber != 1001:#<- set the time
+while indexNumber != 46:#<- set the time
     with open('./data.csv', 'a') as csv_file:
         csv_writer = csv.DictWriter(csv_file, fieldnames = fieldnames)
 
@@ -43,14 +47,14 @@ while indexNumber != 1001:#<- set the time
         indexNumber += 1 #import realtime , how?
         currentTime = datetime.now() # get the current time
         lat =  lat # moving south 1 meter "{:.2f}".format(a_float)
-        lng -= 0.00002 # moving west 2 meter by - 0.00002
+        lng += 0.00002 # moving west 2 meter by - 0.00002
         number = rand()
 #        for i in range(5):
 #            number.append(random.randint(0,16))
 #        number.sort()
 #        number = number[2]
 
-    time.sleep(1)
+    time.sleep(0.01)
     
 #in order to run this properly, python file need to run in terminal, web need host on python server
 # when use python server, change csv number will not refresh the page // python3 -m http.server
